@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCI homework</title>
  
+    <!-- Media PipeのCDNをインポート -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -13,9 +14,13 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <!-- ローカルな映像を取り込むための要素（非表示） -->
     <video id="input" style="display: none;"></video>
+    
+    <!-- 映像に形状検出結果とカウントを重ねて表示するためのキャンバス -->
     <canvas id="output" width="960px" height="720px" style="position: relative; left: 50%; margin-left: -480px; top: 50%; margin-top: -360px;"></canvas>
 
+    <!-- スクリプトのインポート -->
     <script src="./script.js"></script>
 </body>
 </html>
