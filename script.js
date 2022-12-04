@@ -21,23 +21,19 @@ function onResults(results) {
                 let num = 0
                 let fingers = ["thumb", "index", "middle", "ring", "little"]
 
-                if (handedness.label == "Left") {
-                    console.log("Right Hand")
-
-                    let thumb_rad = ((worldLandmarks[2].x - worldLandmarks[3].x)*(worldLandmarks[4].x - worldLandmarks[3].x) + (worldLandmarks[2].y - worldLandmarks[3].y)*(worldLandmarks[4].y - worldLandmarks[3].y) + (worldLandmarks[2].z - worldLandmarks[3].z)*(worldLandmarks[4].z - worldLandmarks[3].z)) / (Math.sqrt((worldLandmarks[2].x - worldLandmarks[3].x)**2 + (worldLandmarks[2].y - worldLandmarks[3].y)**2 + (worldLandmarks[2].z - worldLandmarks[3].z)**2) * Math.sqrt((worldLandmarks[4].x - worldLandmarks[3].x)**2 + (worldLandmarks[4].y - worldLandmarks[3].y)**2 + (worldLandmarks[4].z - worldLandmarks[3].z) **2));
-                    console.log(fingers[0], thumb_rad);
-                    if (thumb_rad < -0.7) num += 1;
-                    for (let i = 5, j=1; i <=17; i+=4, j++) {
-                        let rad = ((worldLandmarks[i].x - worldLandmarks[i+1].x)*(worldLandmarks[i+3].x - worldLandmarks[i+1].x) + (worldLandmarks[i].y - worldLandmarks[i+1].y)*(worldLandmarks[i+3].y - worldLandmarks[i+1].y) + (worldLandmarks[i].z - worldLandmarks[i+1].z)*(worldLandmarks[i+3].z - worldLandmarks[i+1].z)) / (Math.sqrt((worldLandmarks[i].x - worldLandmarks[i+1].x)**2 + (worldLandmarks[i].y - worldLandmarks[i+1].y)**2 + (worldLandmarks[i].z - worldLandmarks[i+1].z)**2) * Math.sqrt((worldLandmarks[i+3].x - worldLandmarks[i+1].x)**2 + (worldLandmarks[i+3].y - worldLandmarks[i+1].y)**2 + (worldLandmarks[i+3].z - worldLandmarks[i+1].z) **2));
-                        console.log(fingers[j], rad);
-                        if (rad < -0.5) num += 2**j;
-                    }
-
-                    console.log(num)
-                    canvasCtx.font = "120px serif"
-                    canvasCtx.fillStyle = "white"
-                    canvasCtx.fillText(num, 70, 160)
+                let thumb_rad = ((worldLandmarks[2].x - worldLandmarks[3].x)*(worldLandmarks[4].x - worldLandmarks[3].x) + (worldLandmarks[2].y - worldLandmarks[3].y)*(worldLandmarks[4].y - worldLandmarks[3].y) + (worldLandmarks[2].z - worldLandmarks[3].z)*(worldLandmarks[4].z - worldLandmarks[3].z)) / (Math.sqrt((worldLandmarks[2].x - worldLandmarks[3].x)**2 + (worldLandmarks[2].y - worldLandmarks[3].y)**2 + (worldLandmarks[2].z - worldLandmarks[3].z)**2) * Math.sqrt((worldLandmarks[4].x - worldLandmarks[3].x)**2 + (worldLandmarks[4].y - worldLandmarks[3].y)**2 + (worldLandmarks[4].z - worldLandmarks[3].z) **2));
+                console.log(fingers[0], thumb_rad);
+                if (thumb_rad < -0.7) num += 1;
+                for (let i = 5, j=1; i <=17; i+=4, j++) {
+                    let rad = ((worldLandmarks[i].x - worldLandmarks[i+1].x)*(worldLandmarks[i+3].x - worldLandmarks[i+1].x) + (worldLandmarks[i].y - worldLandmarks[i+1].y)*(worldLandmarks[i+3].y - worldLandmarks[i+1].y) + (worldLandmarks[i].z - worldLandmarks[i+1].z)*(worldLandmarks[i+3].z - worldLandmarks[i+1].z)) / (Math.sqrt((worldLandmarks[i].x - worldLandmarks[i+1].x)**2 + (worldLandmarks[i].y - worldLandmarks[i+1].y)**2 + (worldLandmarks[i].z - worldLandmarks[i+1].z)**2) * Math.sqrt((worldLandmarks[i+3].x - worldLandmarks[i+1].x)**2 + (worldLandmarks[i+3].y - worldLandmarks[i+1].y)**2 + (worldLandmarks[i+3].z - worldLandmarks[i+1].z) **2));
+                    console.log(fingers[j], rad);
+                    if (rad < -0.5) num += 2**j;
                 }
+
+                console.log(num)
+                canvasCtx.font = "120px serif"
+                canvasCtx.fillStyle = "white"
+                canvasCtx.fillText(num, 70, 160)
             }
         }
     }
@@ -46,7 +42,7 @@ function onResults(results) {
 }
 
 hands.setOptions({
-    maxNumHands: 2,
+    maxNumHands: 1,
     modelComplexity: 1,
     minDetectionConfidence: 0.5,
     minTrackingConfidence: 0.5
