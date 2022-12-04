@@ -10,12 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <video id="input" style="display: none;"></video>
-        <canvas id="output" width="1280px" height="900px"></canvas>
-    </div>
+    <video id="input" style="display: none;"></video>
+    <canvas id="output" width="960px" height="720px" style="position: relative; left: 50%; margin-left: -480px; top: 50%; margin-top: -360px;"></canvas>
 
     <script src="./script.js"></script>
 </body>
