@@ -1,5 +1,7 @@
 # Finger-to-Number
 
+![](./banner.png)
+
 MediaPipeの手指形状検出を用いて，二進数を表現した手を認識して計算結果を表示してくれるシステム
 
 ### 使用方法
@@ -25,3 +27,4 @@ MediaPipeの手指形状検出を用いて，二進数を表現した手を認�
     # php
     $ php -S localhost:8080
     ```
+    
